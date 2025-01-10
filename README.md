@@ -1,42 +1,54 @@
-# 🌟 CJack的个人博客
-
-欢迎访问 **CJackHwang** 的个人博客！在这里，我将分享各种文章与生活经历，探索技术的无限可能。
+# Lumite 博客框架介绍
 
 ---
 
-## 📖 关于博客
+## 概述
 
-该博客几乎是在没有手动编写代码的情况下，由 **GPT4o** 指导开发而成。它几乎是从零开始构建的，并且没有使用任何框架。为了节约服务器成本、提高管理效率和访问速度，博主决定抛弃 **Typecho** 平台，重构博客。
-
----
-
-## 👤 关于博主
-
-**CJackHwang** 是一名普通的高中生，兴趣广泛，尤其对信息技术和刷机有浓厚的热情。目前正在学习 **Kotlin** 开发，并不断尝试为生活增添小惊喜。
+**Lumite** 是一个高效的博客框架，由 **CJackHwang** 独立开发。该名称由“Lumi”（意为光明）和“Lite”（代表轻量）结合而成，象征着框架旨在为用户提供一个清晰、高效且轻量的博客构建解决方案。Lumite 旨在消除繁重的依赖，使开发者能够从零开始，灵活地定制博客。
 
 ---
 
-## ✉️ 联系方式
+## 核心特点
 
-欢迎与博主交流！可以通过以下方式联系：
+- **无框架依赖**  
+  允许使用原生技术构建博客，避免复杂的框架学习曲线。
 
-- **QQ**: [2073782156](tencent://message/?uin=2073782156)
-- **QQ邮箱**: [cjackhwang@qq.com](mailto:cjackhwang@qq.com)
-- **Gmail邮箱**: [tetr20071102@gmail.com](mailto:tetr20071102@gmail.com)
-- **Twitter**: [@tetr5354](https://twitter.com/tetr5354)
-- **GitHub**: [CJackHwang](https://github.com/CJackHwang)
+- **高效性能**  
+  通过优化资源管理，确保博客在高流量情况下保持快速响应，提升用户体验。
 
----
-
-## 📜 开源协议
-
-该博客遵循 **GPL 3.0** 协议，详情请参见 [许可证](https://github.com/CJackHwang/Blog/blob/c3d797b986cf959a7a2faa005c19a2e3729e2c16/LICENSE)。
+- **简易管理**  
+  提供直观的管理界面，使内容更新和维护变得便捷，适合各类用户。
 
 ---
 
-🌈 **感谢您的访问！**  
-© 2024-2025 CJackHwang. 保留所有权利。
+## 开发者简介
+
+**CJackHwang** 是 Lumite 的主要开发者，使用GPT-4o辅助，致力于推动开源技术的发展与应用。作为一名热爱编程的开发者，他将个人的技术经验与对博客系统的理解融入到 Lumite 中，力求为用户提供最佳的使用体验。
+
+### 开发愿景
+
+- **推动开源精神**  
+  Lumite 的代码完全开放，鼓励开发者参与贡献与改进。
+
+- **技术分享与学习**  
+  通过文档和社区支持，促进知识的分享与发展。
 
 ---
 
-🔗 [访问博客](https://www.cjack.cfd/)
+## 联系方式
+
+欢迎与开发者交流与反馈：
+
+- **邮箱**: [cjackhwang@qq.com](mailto:cjackhwang@qq.com)  
+- **GitHub**: [CJackHwang](https://github.com/CJackHwang)  
+
+---
+
+## 开源协议
+
+Lumite 遵循 **GPL 3.0** 协议，详情请参见 [许可证](https://github.com/CJackHwang/Lumite/blob/main/LICENSE)。
+
+---
+
+感谢您的关注与支持！  
+© CJackHwang。保留所有权利。
