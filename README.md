@@ -36,7 +36,8 @@ Lumite 的根目录结构如下：
 │   ├── yourpost_1.txt
 │   ├── yourpost_2.txt
 │   └── ...            # 更多文章
-├── posts_list/        # 博客文章列表
+├── posts_list/
+│    └── list.txt      # 文章列表排序引用
 └── index.html         # 主页文件
 ```
 
