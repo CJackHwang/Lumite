@@ -25,15 +25,20 @@
 
 Lumite 的根目录结构如下：
 
-```
+
 /（根目录）
 ├── css/               # 样式文件
 ├── img/               # 图片资源
 ├── js/                # JavaScript 文件
+│   ├── script.js      # 必要运行文件
+│   └── marked.min.js  # Markdown 转换库
 ├── posts/             # 博客文章文件夹
+│   ├── yourpost_1.txt
+│   ├── yourpost_2.txt
+│   └── ...            # 更多文章
 ├── posts_list/        # 博客文章列表
 └── index.html         # 主页文件
-```
+
 
 ---
 
