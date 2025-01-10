@@ -27,7 +27,8 @@ Lumite 的根目录结构如下：
 
 ```
 /（根目录）
-├── css/               # 样式文件
+.
+├── styles.css         # 样式文件
 ├── img/               # 图片资源
 ├── js/                # JavaScript 文件
 │   ├── script.js      # 必要运行文件
