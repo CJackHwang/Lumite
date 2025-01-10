@@ -1,0 +1,411 @@
+:root {
+    /* 颜色变量 */
+    --bg-color: #fff;
+    /* 默认背景色 */
+    --text-color: #333;
+    /* 默认文本色 */
+    --dark-bg-color: #121212;
+    /* 深色模式背景色 */
+    --dark-text-color: #fff;
+    /* 深色模式文本色 */
+    --primary-border: #ccc;
+    /* 默认边框色 */
+    --primary-hover: #f0f0f0;
+    /* 悬停背景色 */
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    /* 阴影颜色 */
+}
+
+/* 全局重置和盒模型设置 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'OPPO Sans Medium', Roboto, sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 16px;
+    line-height: normal;
+}
+
+/* 深色模式 */
+body.dark-mode {
+    background-color: var(--dark-bg-color);
+    color: var(--dark-text-color);
+}
+
+/* 头部、底部和导航样式 */
+header, footer, nav {
+    font-family: 'OPPO Sans Medium', sans-serif;
+    font-weight: 300;
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    border-radius: 0 0 12px 12px;
+}
+
+header {
+    background-color: var(--primary-hover);
+}
+
+body.dark-mode header {
+    background-color: #1f1f1f;
+}
+
+/* 标题样式 */
+h1, h2 {
+    font-family: 'OPPO Sans Medium', sans-serif;
+    font-weight: 300;
+    margin: 0;
+    transition: transform 0.3s;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h1:hover {
+    transform: translateY(-2px);
+}
+
+/* 导航样式 */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: var(--primary-hover);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode nav {
+    background-color: #333;
+}
+
+nav a {
+    color: var(--text-color);
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 15px;
+    position: relative;
+    transition: color 0.3s, transform 0.3s;
+}
+
+body.dark-mode nav a {
+    color: var(--dark-text-color);
+}
+
+nav a:hover {
+    color: #555;
+    transform: translateY(-5px);
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background: #555;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+body.dark-mode nav a::after {
+    background: var(--dark-text-color);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* 切换按钮样式 */
+#toggleButton {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--primary-hover);
+    color: var(--text-color);
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s, transform 0.3s;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.dark-mode #toggleButton {
+    background-color: #333;
+    color: var(--dark-text-color);
+}
+
+#toggleButton:hover {
+    background-color: #ccc;
+    transform: translateY(-5px);
+}
+
+/* 主内容区样式 */
+main {
+    flex: 1;
+    max-width: auto;
+    margin: 20px auto;
+    padding: 20px;
+    background: var(--bg-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+body.dark-mode main {
+    background: #1e1e1e;
+}
+
+/* 帖子卡片样式 */
+.post-card, .intro-text {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    border: 1px solid #f9f9f9;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+body.dark-mode .post-card, body.dark-mode .intro-text {
+    border: 1px solid #f0f0f0;
+    background-color: #2a2a2a;
+}
+
+.post-card:hover, .intro-text:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+}
+
+/* 内容展开效果 */
+.content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.8s ease, opacity 0.8s ease;
+    margin-top: 10px;
+    white-space: pre-wrap;
+}
+
+.content.show {
+    max-height: 500px;
+    /* 根据内容调整 */
+    opacity: 1;
+}
+
+.content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.meta {
+    color: #888;
+    font-size: 0.9em;
+}
+
+body.dark-mode .meta {
+    color: #ccc;
+}
+
+/* 底部样式 */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #f8f8f8;
+    color: var(--text-color);
+    border-top: 1px solid #eaeaea;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    margin-top: auto;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+body.dark-mode footer {
+    background-color: #1f1f1f;
+    color: var(--dark-text-color);
+}
+
+footer:hover {
+    transform: translateY(-5px);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.footer-links, .contact-link {
+    margin: 10px 0;
+}
+
+.footer-links a, .contact-link {
+    margin: 0 10px;
+    color: inherit;
+    text-decoration: none;
+    transition: text-decoration 0.3s;
+}
+
+.footer-links a:hover, .contact-link:hover {
+    text-decoration: underline;
+}
+
+/* 强制下划线样式 */
+.post-card a {
+    text-decoration: underline;
+    /* 强制下划线 */
+}
+
+.post-card a:hover {
+    text-decoration: underline;
+    /* 悬停时保持下划线 */
+}
+
+/* 介绍内容样式 */
+#introContent {
+    margin: 20px 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    main {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    header, footer {
+        padding: 15px;
+    }
+}
+
+/* 旋转效果 */
+.rotate {
+    transition: transform 0.6s;
+    transform: rotate(360deg);
+}
+
+/* 按钮焦点样式 */
+button {
+    cursor: pointer;
+}
+
+button:focus, a:focus {
+    outline: none;
+}
+
+/* 语言选择按钮样式 */
+.translateSelectLanguage {
+    padding: 5px 20px;
+    border: 1px solid var(--primary-border);
+    border-radius: 12px;
+    background-color: var(--primary-hover);
+    color: var(--text-color);
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+body.dark-mode .translateSelectLanguage {
+    background-color: #333;
+    color: var(--dark-text-color);
+    border: 1px solid #f0f0f0;
+}
+
+/* 分页样式 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    /* 上边距 */
+}
+
+.pagination button {
+    margin: 0 5px;
+    /* 左右边距 */
+    padding: 10px 15px;
+    /* 内边距 */
+    border: 1px solid var(--primary-border);
+    /* 边框 */
+    border-radius: 8px;
+    /* 圆角 */
+    background-color: #f9f9f9;
+    /* 默认背景色 */
+    color: var(--text-color);
+    /* 默认文本颜色 */
+    font-weight: 500;
+    /* 字体加粗 */
+    cursor: pointer;
+    /* 鼠标指针 */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    /* 过渡效果 */
+    box-shadow: 0 4px 15px var(--shadow-color);
+    /* 阴影效果 */
+}
+
+/* 深色模式分页样式 */
+body.dark-mode .pagination button {
+    background-color: #2a2a2a;
+    /* 深色模式背景 */
+    color: var(--dark-text-color);
+    /* 深色模式文本颜色 */
+    border: 1px solid #f0f0f0;
+    /* 深色模式边框颜色 */
+}
+
+.pagination button:hover {
+    background-color: #e0e0e0;
+    /* 悬停背景 */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    /* 悬停阴影 */
+    transform: translateY(-3px);
+    /* 悬停提升效果 */
+}
+
+body.dark-mode .pagination button:hover {
+    background-color: #444;
+    /* 深色模式悬停背景 */
+}
+
+/* 高亮当前按钮样式 */
+.pagination button.active {
+    background-color: #444;
+    /* 高亮背景色 */
+    color: #fff;
+    /* 高亮文字色 */
+    box-shadow: none;
+    /* 可选：去掉阴影 */
+}
+
+/* 深色模式高亮按钮样式 */
+body.dark-mode .pagination button.active {
+    background-color: #fff;
+    /* 深色模式下高亮背景 */
+    color: #444;
+    /* 深色模式下高亮文字色 */
+}
+
+/* 针对按钮的最后一个元素去掉右边距 */
+.pagination button:last-child {
+    margin-right: 0;
+    /* 最后一个按钮不需要右边距 */
+}
