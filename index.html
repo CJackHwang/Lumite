@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="欢迎访问Lumite博客，探索技术、生活和个人成长的精彩内容。">
-    <meta name="keywords" content="博客, 个人, 技术, 生活, 编程">
-    <title>博客网页标题</title>
+    <meta name="description" content="欢迎访问我的博客，探索技术、生活和个人成长的精彩内容。">
+    <meta name="keywords" content="博客, 个人, 技术, 生活, 编程, Kotlin">
+    <title>我的博客 - 技术与生活的分享</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://ik.imagekit.io/cjack/OPPO%20Sans%20Medium/result.css?updatedAt=1733565886168">
+    <script src="js/marked.min.js"></script>
+    <script src="js/script.js" defer></script>
 </head>
 <body>
     <header>
@@ -16,21 +17,20 @@
             副标题填写在此
             <p></p>
         </div>
-        <nav>
+        <nav aria-label="主导航">
             <a href="#" id="homeLink">首页</a>
             <a href="#" id="aboutLink">关于</a>
             <a href="#" id="contactLink">联系</a>
-            <button id="toggleButton" title="切换暗黑/明亮模式">&#9789</button>
+            <button id="toggleButton" title="切换暗黑/明亮模式" aria-label="切换暗黑/明亮模式">&#9789</button>
         </nav>
     </header>
 
-    <main id="postList">
+    <main id="postList" role="main">
         <!-- 文章列表将在这里生成 -->
-        <script src="js/marked.min.js"></script>
     </main>
 
-    <section id="introContent" style="display: none;">
-        <article class="intro-text" id="aboutContent">
+    <section id="introContent" style="display: none;" aria-live="polite">
+        <article class="intro-text" id="aboutContent" tabindex="0">
             <h2>关于</h2>
             <h3>关于博客</h3>
             <p>
@@ -41,15 +41,15 @@
                 这里填写关于你自己
             </p>
             <p>
-                这里的板块高度自定义
+                欢迎找我闲聊（）。
             </p>
         </article>
 
-        <article class="intro-text" id="contactContent">
+        <article class="intro-text" id="contactContent" tabindex="0">
             <h2>联系</h2>
             <h3>您可以通过点击以下方式与我联系：</h3>
             <p>
-                【腾讯QQ】<a class="contact-link" href="tencent://message/?uin=xxxxxxxxx&Site=&Menu=yes">xxxxxxxxxx（你的QQ）</a>
+                【腾讯QQ】<a class="contact-link" href="tencent://message/?uin=xxxxxxxxx&Site=&Menu=yes">xxxxxxxxx（点击跳转）</a>
             </p>
             <p>
                 【QQ邮箱】<a class="contact-link" href="mailto:yourmail@qq.com">yourmail@qq.com</a>
@@ -58,10 +58,10 @@
                 【Gmail邮箱】<a class="contact-link" href="mailto:yourmail@gmail.com">yourmail@gmail.com</a>
             </p>
             <p>
-                【X（Twitter）】<a class="contact-link" href="https://x.com/yourpage?s=09">这里填写你的X</a>
+                【X（Twitter）】<a class="contact-link" href="这里填写你的X">这里填写你的X</a>
             </p>
             <p>
-                【GitHub】<a class="contact-link" href="https://github.com/">你的GitHub主页</a>
+                【GitHub】<a class="contact-link" href="你的GitHub主页">你的GitHub主页</a>
             </p>
         </article>
     </section>
@@ -71,16 +71,15 @@
             &copy; 2024-2025 CJackHwang. 保留所有权利.
         </p>
         <div class="footer-links">
-            <a class="contact-link" href="https://github.com/CJackHwang/Blog" target="_blank" rel="noopener noreferrer">开发者博客仓库</a> |
+            <a class="contact-link" href="开发者博客仓库链接" target="_blank" rel="noopener noreferrer">开发者博客仓库</a> |
             <a class="contact-link" href="https://icp.gov.moe/?keyword=20241982" target="_blank" rel="noopener noreferrer">萌ICP备20241982号</a>
         </div>
         <div id="translate"></div>
     </footer>
-
-    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="https://ik.imagekit.io/cjack/OPPO%20Sans%20Medium/result.css?updatedAt=1733565886168">
     <script src="https://res.zvo.cn/translate/translate.js"></script>
     <script>
-        // 语言翻译设置，引用出处https://gitee.com/mail_osc/translate
+        // 语言翻译设置
         translate.ignore.class.push('test');
         translate.setAutoDiscriminateLocalLanguage();
         translate.setUseVersion2();
