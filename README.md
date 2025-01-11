@@ -80,5 +80,12 @@ Lumite 遵循 **GPL 3.0** 协议，详情请参见 [许可证](https://github.co
 
 ---
 
-感谢您的关注与支持！  
+## Google 网页能效测试结果
+
+以下是 Google 网页能效测试的结果：
+
+![测试结果]（https://github.com/user-attachments/assets/2332c4d1-4ff8-4018-b3ad-424590aa76bf)
+
+---
+感谢您的关注与支持
 © CJackHwang。保留所有权利。
