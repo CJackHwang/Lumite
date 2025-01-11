@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="欢迎访问我的博客，探索技术、生活和个人成长的精彩内容。">
     <meta name="keywords" content="博客, 个人, 技术, 生活, 编程, Kotlin">
+    <meta name="author" content="CJackHwang">
     <title>我的博客 - 技术与生活的分享</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="js/marked.min.js"></script>
-    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="https://ik.imagekit.io/cjack/OPPO%20Sans%20Medium/result.css?updatedAt=1733565886168" media="print" onload="this.media='all'">
+    <script src="js/processing.js" defer></script>
+    <script src="js/marked.min.js" async></script>
+    <script src="js/theme.js" defer></script>
 </head>
 <body>
     <header>
@@ -18,7 +21,7 @@
             <p></p>
         </div>
         <nav aria-label="主导航">
-            <a href="#" id="homeLink">首页</a>
+            <a href="#" id="homeLink" aria-current="page">首页</a>
             <a href="#" id="aboutLink">关于</a>
             <a href="#" id="contactLink">联系</a>
             <button id="toggleButton" title="切换暗黑/明亮模式" aria-label="切换暗黑/明亮模式">&#9789</button>
@@ -74,18 +77,6 @@
             <a class="contact-link" href="开发者博客仓库链接" target="_blank" rel="noopener noreferrer">开发者博客仓库</a> |
             <a class="contact-link" href="https://icp.gov.moe/?keyword=20241982" target="_blank" rel="noopener noreferrer">萌ICP备20241982号</a>
         </div>
-        <div id="translate"></div>
     </footer>
-    <link rel="stylesheet" href="https://ik.imagekit.io/cjack/OPPO%20Sans%20Medium/result.css?updatedAt=1733565886168">
-    <script src="https://res.zvo.cn/translate/translate.js"></script>
-    <script>
-        // 语言翻译设置
-        translate.ignore.class.push('test');
-        translate.setAutoDiscriminateLocalLanguage();
-        translate.setUseVersion2();
-        translate.selectLanguageTag.languages = 'english,chinese_simplified,chinese_traditional,japanese,korean';
-        translate.ignore.tag.push('h1');
-        translate.execute();
-    </script>
 </body>
 </html>
