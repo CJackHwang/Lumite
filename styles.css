@@ -128,12 +128,13 @@ nav a:hover::after {
     font-size: 20px;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s;
     margin-left: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 
 body.dark-mode #toggleButton {
     background-color: #333;
@@ -142,7 +143,6 @@ body.dark-mode #toggleButton {
 
 #toggleButton:hover {
     background-color: #ccc;
-    transform: translateY(-5px);
 }
 
 main {
@@ -316,7 +316,6 @@ body.dark-mode .pagination button {
 .pagination button:hover {
     background-color: #e0e0e0;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    transform: translateY(-3px);
 }
 
 body.dark-mode .pagination button:hover {
