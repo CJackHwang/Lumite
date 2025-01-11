@@ -202,13 +202,14 @@ body.dark-mode .post-card, body.dark-mode .intro-text {
 }
 
 .meta {
-    color: #888;
+    color: #555555;
     font-size: 0.9em;
 }
 
 body.dark-mode .meta {
-    color: #ccc;
+    color: #e0e0e0;
 }
+
 
 footer {
     text-align: center;
@@ -285,23 +286,6 @@ button {
 
 button:focus, a:focus {
     outline: none;
-}
-
-.translateSelectLanguage {
-    padding: 5px 20px;
-    border: 1px solid var(--primary-border);
-    border-radius: 12px;
-    background-color: var(--primary-hover);
-    color: var(--text-color);
-    font-weight: 500;
-    transition: background-color 0.3s, transform 0.3s;
-    cursor: pointer;
-}
-
-body.dark-mode .translateSelectLanguage {
-    background-color: #333;
-    color: var(--dark-text-color);
-    border: 1px solid #f0f0f0;
 }
 
 .pagination {
