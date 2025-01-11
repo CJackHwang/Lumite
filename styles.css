@@ -128,12 +128,13 @@ nav a:hover::after {
     font-size: 20px;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s;
     margin-left: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 
 body.dark-mode #toggleButton {
     background-color: #333;
@@ -142,7 +143,6 @@ body.dark-mode #toggleButton {
 
 #toggleButton:hover {
     background-color: #ccc;
-    transform: translateY(-5px);
 }
 
 main {
@@ -202,13 +202,14 @@ body.dark-mode .post-card, body.dark-mode .intro-text {
 }
 
 .meta {
-    color: #888;
+    color: #555555;
     font-size: 0.9em;
 }
 
 body.dark-mode .meta {
-    color: #ccc;
+    color: #e0e0e0;
 }
+
 
 footer {
     text-align: center;
@@ -287,23 +288,6 @@ button:focus, a:focus {
     outline: none;
 }
 
-.translateSelectLanguage {
-    padding: 5px 20px;
-    border: 1px solid var(--primary-border);
-    border-radius: 12px;
-    background-color: var(--primary-hover);
-    color: var(--text-color);
-    font-weight: 500;
-    transition: background-color 0.3s, transform 0.3s;
-    cursor: pointer;
-}
-
-body.dark-mode .translateSelectLanguage {
-    background-color: #333;
-    color: var(--dark-text-color);
-    border: 1px solid #f0f0f0;
-}
-
 .pagination {
     display: flex;
     justify-content: center;
@@ -332,7 +316,6 @@ body.dark-mode .pagination button {
 .pagination button:hover {
     background-color: #e0e0e0;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    transform: translateY(-3px);
 }
 
 body.dark-mode .pagination button:hover {

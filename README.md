@@ -23,23 +23,24 @@
 
 ## 目录结构
 
-Lumite 的根目录结构如下：
+Lumite v1.1.0 的目录结构如下：
 
 ```
 /（根目录）
 .
-├── styles.css         # 样式文件
-├── img/               # 图片资源
-├── js/                # JavaScript 文件
-│   ├── script.js      # 必要运行文件
-│   └── marked.min.js  # Markdown 转换库
-├── posts/             # 博客文章文件夹
+├── styles.css          # 样式文件
+├── img/                # 图片资源
+├── js/                 # JavaScript 文件
+│   ├── theme.js       # 导航栏及主题相关
+│   ├── processing.js  # 文章等主体内容处理
+│   └── marked.min.js  # Markdown转换库
+├── posts/              # 博客文章文件夹
 │   ├── yourpost_1.txt
 │   ├── yourpost_2.txt
-│   └── ...            # 更多文章
+│   └── ...            # 文章存放
 ├── posts_list/
-│   └── list.txt      # 文章列表排序引用
-└── index.html         # 主页文件
+│   └── list.txt       # 文章引用及排序设置
+└── index.html          # 默认主页文件
 ```
 
 ---

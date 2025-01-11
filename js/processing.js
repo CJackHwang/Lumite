@@ -1,25 +1,4 @@
-const toggleButton = document.getElementById('toggleButton');
 const postList = document.getElementById('postList');
-const introContent = document.getElementById('introContent');
-const aboutContent = document.getElementById('aboutContent');
-const contactContent = document.getElementById('contactContent');
-
-const setInitialTheme = () => {
-    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.body.classList.toggle('dark-mode', isDarkMode);
-    toggleButton.innerHTML = isDarkMode ? '&#9728;': '&#9789;';
-};
-
-setInitialTheme();
-
-toggleButton.addEventListener('click', () => {
-    const isDarkMode = document.body.classList.toggle('dark-mode');
-    toggleButton.style.backgroundColor = isDarkMode ? '#333': '#f0f0f0';
-    toggleButton.innerHTML = isDarkMode ? '&#9728;': '&#9789;';
-    toggleButton.classList.add('rotate');
-
-    setTimeout(() => toggleButton.classList.remove('rotate'), 600);
-});
 
 const getPostFileList = async () => {
     try {
@@ -62,7 +41,7 @@ const displayPosts = (posts) => {
     const totalPages = Math.ceil(posts.length / postsPerPage);
     const pagination = document.createElement('div');
     pagination.className = 'pagination';
-    let isFirstLoad = true; // 标记是否为首次加载
+    let isFirstLoad = true;
 
     const showPage = (page) => {
         if (!isFirstLoad) {
@@ -93,14 +72,13 @@ const displayPosts = (posts) => {
             postList.appendChild(fragment);
             updatePagination(page);
 
-            // 如果不是首次加载，则恢复透明度
             if (!isFirstLoad) {
                 postList.style.opacity = '1';
             } else {
-                isFirstLoad = false; // 更新标记为首次加载已完成
+                isFirstLoad = false;
             }
         },
-            isFirstLoad ? 0: 500); // 首次加载时不延迟
+            isFirstLoad ? 0: 500);
     };
 
     const updatePagination = (currentPage) => {
@@ -208,60 +186,4 @@ const loadPosts = async () => {
     displayPosts(posts.filter(Boolean));
 };
 
-const setupNavigation = () => {
-    const fadeElements = {
-        intro: introContent,
-        about: aboutContent,
-        contact: contactContent,
-    };
-
-    const fadeOut = (element, callback) => {
-        element.style.opacity = '1';
-        element.style.transition = 'opacity 0.5s ease';
-        element.style.opacity = '0';
-        setTimeout(() => {
-            element.style.display = 'none';
-            callback();
-        }, 500);
-    };
-
-    const fadeIn = (element) => {
-        element.style.display = 'block';
-        element.style.opacity = '0';
-        element.style.transition = 'opacity 0.5s ease';
-        setTimeout(() => {
-            element.style.opacity = '1';
-        }, 15);
-    };
-
-    document.getElementById('aboutLink').addEventListener('click', (e) => {
-        e.preventDefault();
-        fadeOut(postList, () => {
-            fadeElements.intro.style.display = 'block';
-            fadeElements.about.style.display = 'block';
-            fadeElements.contact.style.display = 'none';
-            fadeIn(fadeElements.intro);
-        });
-    });
-
-    document.getElementById('contactLink').addEventListener('click', (e) => {
-        e.preventDefault();
-        fadeOut(postList, () => {
-            fadeElements.intro.style.display = 'block';
-            fadeElements.contact.style.display = 'block';
-            fadeElements.about.style.display = 'none';
-            fadeIn(fadeElements.intro);
-        });
-    });
-
-    document.getElementById('homeLink').addEventListener('click', (e) => {
-        e.preventDefault();
-        fadeOut(fadeElements.intro, () => {
-            postList.style.display = 'block';
-            fadeIn(postList);
-        });
-    });
-};
-
-setupNavigation();
 loadPosts();
