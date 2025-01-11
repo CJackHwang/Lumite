@@ -62,10 +62,13 @@ const displayPosts = (posts) => {
     const totalPages = Math.ceil(posts.length / postsPerPage);
     const pagination = document.createElement('div');
     pagination.className = 'pagination';
+    let isFirstLoad = true; // 标记是否为首次加载
 
     const showPage = (page) => {
-        postList.style.transition = 'opacity 0.5s ease';
-        postList.style.opacity = '0';
+        if (!isFirstLoad) {
+            postList.style.transition = 'opacity 0.5s ease';
+            postList.style.opacity = '0';
+        }
 
         setTimeout(() => {
             postList.innerHTML = '';
@@ -89,19 +92,29 @@ const displayPosts = (posts) => {
 
             postList.appendChild(fragment);
             updatePagination(page);
-            postList.style.opacity = '1';
-        }, 500);
+
+            // 如果不是首次加载，则恢复透明度
+            if (!isFirstLoad) {
+                postList.style.opacity = '1';
+            } else {
+                isFirstLoad = false; // 更新标记为首次加载已完成
+            }
+        },
+            isFirstLoad ? 0: 500); // 首次加载时不延迟
     };
 
     const updatePagination = (currentPage) => {
         pagination.innerHTML = '';
 
-        const firstButton = createPaginationButton('首页', () => showPage(1));
+        const firstButton = createPaginationButton('首页',
+            () => showPage(1));
         pagination.appendChild(firstButton);
 
         const pageButtons = [];
-        const startPage = Math.max(1, currentPage - 1);
-        const endPage = Math.min(totalPages, currentPage + 1);
+        const startPage = Math.max(1,
+            currentPage - 1);
+        const endPage = Math.min(totalPages,
+            currentPage + 1);
 
         for (let i = startPage; i <= endPage; i++) {
             if (i <= totalPages) {
