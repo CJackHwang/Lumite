@@ -1,22 +1,13 @@
 :root {
-    /* 颜色变量 */
-    --bg-color: #fff;
-    /* 默认背景色 */
-    --text-color: #333;
-    /* 默认文本色 */
+    --bg-color: #ffffff;
+    --text-color: #333333;
     --dark-bg-color: #121212;
-    /* 深色模式背景色 */
-    --dark-text-color: #fff;
-    /* 深色模式文本色 */
-    --primary-border: #ccc;
-    /* 默认边框色 */
+    --dark-text-color: #e0e0e0;
+    --primary-border: #cccccc;
     --primary-hover: #f0f0f0;
-    /* 悬停背景色 */
     --shadow-color: rgba(0, 0, 0, 0.2);
-    /* 阴影颜色 */
 }
 
-/* 全局重置和盒模型设置 */
 * {
     box-sizing: border-box;
 }
@@ -36,13 +27,11 @@ body {
     line-height: normal;
 }
 
-/* 深色模式 */
 body.dark-mode {
     background-color: var(--dark-bg-color);
     color: var(--dark-text-color);
 }
 
-/* 头部、底部和导航样式 */
 header, footer, nav {
     font-family: 'OPPO Sans Medium', sans-serif;
     font-weight: 300;
@@ -60,7 +49,6 @@ body.dark-mode header {
     background-color: #1f1f1f;
 }
 
-/* 标题样式 */
 h1, h2 {
     font-family: 'OPPO Sans Medium', sans-serif;
     font-weight: 300;
@@ -76,7 +64,6 @@ h1:hover {
     transform: translateY(-2px);
 }
 
-/* 导航样式 */
 nav {
     display: flex;
     justify-content: center;
@@ -131,7 +118,6 @@ nav a:hover::after {
     width: 100%;
 }
 
-/* 切换按钮样式 */
 #toggleButton {
     width: 40px;
     height: 40px;
@@ -159,7 +145,6 @@ body.dark-mode #toggleButton {
     transform: translateY(-5px);
 }
 
-/* 主内容区样式 */
 main {
     flex: 1;
     max-width: auto;
@@ -174,7 +159,6 @@ body.dark-mode main {
     background: #1e1e1e;
 }
 
-/* 帖子卡片样式 */
 .post-card, .intro-text {
     margin-bottom: 20px;
     padding: 20px;
@@ -196,7 +180,6 @@ body.dark-mode .post-card, body.dark-mode .intro-text {
     transform: translateY(-5px);
 }
 
-/* 内容展开效果 */
 .content {
     max-height: 0;
     overflow: hidden;
@@ -208,7 +191,6 @@ body.dark-mode .post-card, body.dark-mode .intro-text {
 
 .content.show {
     max-height: 500px;
-    /* 根据内容调整 */
     opacity: 1;
 }
 
@@ -228,7 +210,6 @@ body.dark-mode .meta {
     color: #ccc;
 }
 
-/* 底部样式 */
 footer {
     text-align: center;
     padding: 15px;
@@ -270,23 +251,18 @@ footer p {
     text-decoration: underline;
 }
 
-/* 强制下划线样式 */
 .post-card a {
     text-decoration: underline;
-    /* 强制下划线 */
 }
 
 .post-card a:hover {
     text-decoration: underline;
-    /* 悬停时保持下划线 */
 }
 
-/* 介绍内容样式 */
 #introContent {
     margin: 20px 0;
 }
 
-/* 响应式设计 */
 @media (max-width: 600px) {
     main {
         margin: 10px;
@@ -298,13 +274,11 @@ footer p {
     }
 }
 
-/* 旋转效果 */
 .rotate {
     transition: transform 0.6s;
     transform: rotate(360deg);
 }
 
-/* 按钮焦点样式 */
 button {
     cursor: pointer;
 }
@@ -313,7 +287,6 @@ button:focus, a:focus {
     outline: none;
 }
 
-/* 语言选择按钮样式 */
 .translateSelectLanguage {
     padding: 5px 20px;
     border: 1px solid var(--primary-border);
@@ -331,81 +304,52 @@ body.dark-mode .translateSelectLanguage {
     border: 1px solid #f0f0f0;
 }
 
-/* 分页样式 */
 .pagination {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    /* 上边距 */
 }
 
 .pagination button {
     margin: 0 5px;
-    /* 左右边距 */
     padding: 10px 15px;
-    /* 内边距 */
     border: 1px solid var(--primary-border);
-    /* 边框 */
     border-radius: 8px;
-    /* 圆角 */
     background-color: #f9f9f9;
-    /* 默认背景色 */
     color: var(--text-color);
-    /* 默认文本颜色 */
     font-weight: 500;
-    /* 字体加粗 */
     cursor: pointer;
-    /* 鼠标指针 */
     transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
-    /* 过渡效果 */
     box-shadow: 0 4px 15px var(--shadow-color);
-    /* 阴影效果 */
 }
 
-/* 深色模式分页样式 */
 body.dark-mode .pagination button {
     background-color: #2a2a2a;
-    /* 深色模式背景 */
     color: var(--dark-text-color);
-    /* 深色模式文本颜色 */
     border: 1px solid #f0f0f0;
-    /* 深色模式边框颜色 */
 }
 
 .pagination button:hover {
     background-color: #e0e0e0;
-    /* 悬停背景 */
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    /* 悬停阴影 */
     transform: translateY(-3px);
-    /* 悬停提升效果 */
 }
 
 body.dark-mode .pagination button:hover {
     background-color: #444;
-    /* 深色模式悬停背景 */
 }
 
-/* 高亮当前按钮样式 */
 .pagination button.active {
     background-color: #444;
-    /* 高亮背景色 */
-    color: #fff;
-    /* 高亮文字色 */
+    color: #ffffff;
     box-shadow: none;
-    /* 可选：去掉阴影 */
 }
 
-/* 深色模式高亮按钮样式 */
 body.dark-mode .pagination button.active {
-    background-color: #fff;
-    /* 深色模式下高亮背景 */
+    background-color: #ffffff;
     color: #444;
-    /* 深色模式下高亮文字色 */
 }
 
-/* 针对按钮的最后一个元素去掉右边距 */
 .pagination button:last-child {
     margin-right: 0;
-    /* 最后一个按钮不需要右边距 */
 }
