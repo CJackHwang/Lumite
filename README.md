@@ -1,4 +1,4 @@
-![Lumite](https://raw.githubusercontent.com/CJackHwang/Lumite/refs/heads/main/img/Lumite.png)
+![Lumite](https://raw.githubusercontent.com/CJackHwang/Lumite/904012b92863f14efc5a56a5a303100029d0c976/img/Lumite.svg)
 # Lumite
 ### 更加轻量级的原生博客框架
 ---
