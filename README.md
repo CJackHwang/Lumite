@@ -1,9 +1,6 @@
 ![Lumite](https://raw.githubusercontent.com/CJackHwang/Lumite/904012b92863f14efc5a56a5a303100029d0c976/img/Lumite.svg)
 # Lumite
-### 更轻量级的原生博客框架
-## 一键部署
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/CJackHwang/Lumite)
-
+#### 更轻量级的原生博客框架
 ---
 [![LumiteBuilt](https://img.shields.io/badge/Lumite-Powered%20by-FFFFFF?style=flat&logo=data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAxOSAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMuOTc2ODEgMTMuMzVDLTcuMDgyNzQgMjQuNDA5NyA3LjY2MzMyIC04Ljc2OTA1IDE1LjAzNjQgMi4yOTA1MUMyMi40MDk1IDEzLjM1IDE1LjAzNjQgMjAuNzIzMSAxNS4wMzY0IDIwLjcyMzFDMi4xMzM2IDIwLjcyMzEgMC4yOTAyOTggMjguMDk2MiAyLjEzMzYgMjAuNzIzMUMzLjk3NjgxIDEzLjM1IDE1LjAzNjQgMjAuNzIzMSAxNS4wMzY0IDIwLjcyMzFDMTUuMDM2NCAyMC43MjMxIDE1LjAzNjQgMi4yOTA1MSAzLjk3NjgxIDEzLjM1WiIgZmlsbD0iIzFDREM5QyIvPgo8L3N2Zz4=)](https://github.com/CJackHwang/Lumite "Powered by Lumite")
 [![GitHub](https://img.shields.io/badge/GitHub-CJackHwang-100000?style=flat&logo=github&logoColor=white)](https://github.com/CJackHwang)
@@ -54,7 +51,7 @@ Lumite v1.1.0 的目录结构如下：
 
 ---
 
-## 开发者简介
+## 开发者
 
 **CJackHwang** 是 Lumite 的主要开发者，使用GPT4o辅助，致力于推动开源技术的发展与应用。作为一名热爱编程的开发者，他将个人的技术经验与对博客系统的理解融入到 Lumite 中，力求为用户提供最佳的使用体验。
 
@@ -71,6 +68,10 @@ Lumite v1.1.0 的目录结构如下：
 ## 模板演示
 
 您可以访问 [Lumite 模板演示地址](https://lumite-template.cjack.cfd) 查看框架的实际效果。
+---
+
+## 一键部署
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/CJackHwang/Lumite)
 
 ---
 
