@@ -1,5 +1,6 @@
 # Lumite
 [![Powered by Lumite](https://img.shields.io/badge/Powered%20by-Lumite-FFFFFF?style=flat)](https://github.com/CJackHwang/Lumite)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/CJackHwang)
 [![Deploy with Vercel](https://img.shields.io/badge/Deploy%20with-Vercel-000000?style=flat&logo=vercel)](https://vercel.com)
 [![GPL-3.0 License](https://img.shields.io/badge/license-GPL%203.0-blue.svg?style=flat)](https://www.gnu.org/licenses/gpl-3.0.html)
 ---
