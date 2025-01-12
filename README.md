@@ -1,6 +1,6 @@
 ![Lumite](https://raw.githubusercontent.com/CJackHwang/Lumite/904012b92863f14efc5a56a5a303100029d0c976/img/Lumite.svg)
 # Lumite 
-#### 更轻量级的原生博客框架
+#### 轻量级的原生博客框架
 
 ### 直接部署？请前往文末[部署板块](#一键部署)点击按钮即可
 ---
