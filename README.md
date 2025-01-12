@@ -1,3 +1,4 @@
+![Lumite](https://raw.githubusercontent.com/CJackHwang/Lumite/refs/heads/main/img/Lumite.png)
 # Lumite
 ### 更加轻量级的原生博客框架
 ---
