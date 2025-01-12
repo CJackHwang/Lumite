@@ -2,8 +2,6 @@
 # Lumite 
 #### 轻量级的原生博客框架
 
-# Language
-
 - [English Version](README/README_EN.md)  
   This is the English version of the README file.
 
