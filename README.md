@@ -1,6 +1,6 @@
 ![Lumite](https://raw.githubusercontent.com/CJackHwang/Lumite/904012b92863f14efc5a56a5a303100029d0c976/img/Lumite.svg)
 # Lumite
-### 更加轻量级的原生博客框架
+更轻量级的原生博客框架
 ---
 [![Powered by Lumite](https://img.shields.io/badge/Powered%20by-Lumite-FFFFFF?style=flat)](https://github.com/CJackHwang/Lumite)
 [![GitHub](https://img.shields.io/badge/GitHub-CJackHwang-100000?style=flat&logo=github&logoColor=white)](https://github.com/CJackHwang)
