@@ -2,7 +2,7 @@
 # Lumite 
 #### 更轻量级的原生博客框架
 
-### 直接部署？请[前往部署部分](#一键部署)点击按钮即可
+### 直接部署？请前往文末[部署板块](#一键部署)点击按钮即可
 ---
 [![LumiteBuilt](https://img.shields.io/badge/Lumite-Powered%20by-FFFFFF?style=flat&logo=data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAxOSAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMuOTc2ODEgMTMuMzVDLTcuMDgyNzQgMjQuNDA5NyA3LjY2MzMyIC04Ljc2OTA1IDE1LjAzNjQgMi4yOTA1MUMyMi40MDk1IDEzLjM1IDE1LjAzNjQgMjAuNzIzMSAxNS4wMzY0IDIwLjcyMzFDMi4xMzM2IDIwLjcyMzEgMC4yOTAyOTggMjguMDk2MiAyLjEzMzYgMjAuNzIzMUMzLjk3NjgxIDEzLjM1IDE1LjAzNjQgMjAuNzIzMSAxNS4wMzY0IDIwLjcyMzFDMTUuMDM2NCAyMC43MjMxIDE1LjAzNjQgMi4yOTA1MSAzLjk3NjgxIDEzLjM1WiIgZmlsbD0iIzFDREM5QyIvPgo8L3N2Zz4=)](https://github.com/CJackHwang/Lumite "Powered by Lumite")
 [![GitHub](https://img.shields.io/badge/GitHub-CJackHwang-100000?style=flat&logo=github&logoColor=white)](https://github.com/CJackHwang)
@@ -73,14 +73,6 @@ Lumite v1.1.0 的目录结构如下：
 
 ---
 
-# 一键部署
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/CJackHwang/Lumite)
-
----
-
-# 其他
----
 ## 联系方式
 
 欢迎与开发者交流与反馈：
@@ -103,5 +95,11 @@ Lumite 遵循 **GPL 3.0** 协议，详情请参见 [许可证](https://github.co
 ![测试结果](https://github.com/user-attachments/assets/2332c4d1-4ff8-4018-b3ad-424590aa76bf)
 
 ---
-感谢您的关注与支持
+
+# 一键部署
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/CJackHwang/Lumite)
+
+---
+感谢您的关注与支持，如果可以请给一个免费的⭐鼓励一下
 © CJackHwang。保留所有权利。
