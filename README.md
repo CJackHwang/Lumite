@@ -1,7 +1,8 @@
 ![Lumite](https://raw.githubusercontent.com/CJackHwang/Lumite/904012b92863f14efc5a56a5a303100029d0c976/img/Lumite.svg)
-# Lumite #### 更轻量级的原生博客框架
+# Lumite 
+#### 更轻量级的原生博客框架
 
-### 直接部署？请前往下方的 **#部署** 板块点击按钮可一键部署
+### 想要直接部署？请前往下方的 **部署** 板块点击按钮可一键部署
 ---
 [![LumiteBuilt](https://img.shields.io/badge/Lumite-Powered%20by-FFFFFF?style=flat&logo=data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAxOSAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMuOTc2ODEgMTMuMzVDLTcuMDgyNzQgMjQuNDA5NyA3LjY2MzMyIC04Ljc2OTA1IDE1LjAzNjQgMi4yOTA1MUMyMi40MDk1IDEzLjM1IDE1LjAzNjQgMjAuNzIzMSAxNS4wMzY0IDIwLjcyMzFDMi4xMzM2IDIwLjcyMzEgMC4yOTAyOTggMjguMDk2MiAyLjEzMzYgMjAuNzIzMUMzLjk3NjgxIDEzLjM1IDE1LjAzNjQgMjAuNzIzMSAxNS4wMzY0IDIwLjcyMzFDMTUuMDM2NCAyMC43MjMxIDE1LjAzNjQgMi4yOTA1MSAzLjk3NjgxIDEzLjM1WiIgZmlsbD0iIzFDREM5QyIvPgo8L3N2Zz4=)](https://github.com/CJackHwang/Lumite "Powered by Lumite")
 [![GitHub](https://img.shields.io/badge/GitHub-CJackHwang-100000?style=flat&logo=github&logoColor=white)](https://github.com/CJackHwang)
