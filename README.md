@@ -73,11 +73,13 @@ Lumite v1.1.0 的目录结构如下：
 
 ---
 
-## 一键部署
+# 一键部署
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/CJackHwang/Lumite)
 
 ---
+
+# 其他
 
 ## 联系方式
 
