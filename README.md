@@ -2,10 +2,10 @@
 # Lumite 
 #### Lightweight native blog framework
 
-- [English Version](README/README_EN.md)  
+- [English Version](README.md)  
   This is the English version of the README file.
 
-- [中文版本](README/README_CN.md)  
+- [中文版本](README_CN.md)  
   这是 README 文件的中文版本。
 
 ### Direct deployment? Please go to the [Deployment section](#one-click-deployment) at the end of the article and click the button
