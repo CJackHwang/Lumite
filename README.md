@@ -1,4 +1,4 @@
-![Lumite](https://raw.githubusercontent.com/CJackHwang/Lumite/904012b92863f14efc5a56a5a303100029d0c976/img/Lumite.svg)
+![Lumite](https://static.codemao.cn/pickduck/rkY-aMGPyx.svg?hash=FoLMemr9r1D-6C7pkYLClZP6_lFZ)
 # Lumite 
 #### Lightweight native blog framework
 
