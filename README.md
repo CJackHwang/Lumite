@@ -12,6 +12,7 @@
 ---
 [![LumiteBuilt](https://img.shields.io/badge/Lumite-Framework-444?style=flat-square&logo=data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAxOSAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMuOTc2ODEgMTMuMzVDLTcuMDgyNzQgMjQuNDA5NyA3LjY2MzMyIC04Ljc2OTA1IDE1LjAzNjQgMi4yOTA1MUMyMi40MDk1IDEzLjM1IDE1LjAzNjQgMjAuNzIzMSAxNS4wMzY0IDIwLjcyMzFDMi4xMzM2IDIwLjcyMzEgMC4yOTAyOTggMjguMDk2MiAyLjEzMzYgMjAuNzIzMUMzLjk3NjgxIDEzLjM1IDE1LjAzNjQgMjAuNzIzMSAxNS4wMzY0IDIwLjcyMzFDMTUuMDM2NCAyMC43MjMxIDE1LjAzNjQgMi4yOTA1MSAzLjk3NjgxIDEzLjM1WiIgZmlsbD0iIzFDREM5QyIvPgo8L3N2Zz4=&labelColor=FFFFFF)](https://github.com/CJackHwang/Lumite "Powered by Lumite")
 [![Deploy with Vercel](https://img.shields.io/badge/Vercel-Deploy-000000?style=flat&logo=vercel)](https://vercel.com)
+[![GitHub](https://img.shields.io/badge/GitHub-CJackHwang-100000?style=flat&logo=github&logoColor=white)](https://github.com/CJackHwang)
 [![GPL-3.0 License](https://img.shields.io/badge/License-GPL%203.0-blue.svg?style=flat)](https://www.gnu.org/licenses/gpl-3.0.html)
 ---
 
