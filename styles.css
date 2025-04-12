@@ -1,3 +1,4 @@
+/* CSS for the blog page */
 :root {
     --bg-color: #ffffff;
     --text-color: #333333;
@@ -32,7 +33,9 @@ body.dark-mode {
     color: var(--dark-text-color);
 }
 
-header, footer, nav {
+header,
+footer,
+nav {
     font-family: 'OPPO Sans Medium', sans-serif;
     font-weight: 300;
     padding: 40px 0;
@@ -49,7 +52,8 @@ body.dark-mode header {
     background-color: #1f1f1f;
 }
 
-h1, h2 {
+h1,
+h2 {
     font-family: 'OPPO Sans Medium', sans-serif;
     font-weight: 300;
     margin: 0;
@@ -159,7 +163,8 @@ body.dark-mode main {
     background: #1e1e1e;
 }
 
-.post-card, .intro-text {
+.post-card,
+.intro-text {
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 8px;
@@ -170,12 +175,14 @@ body.dark-mode main {
     transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
-body.dark-mode .post-card, body.dark-mode .intro-text {
+body.dark-mode .post-card,
+body.dark-mode .intro-text {
     border: 1px solid #f0f0f0;
     background-color: #2a2a2a;
 }
 
-.post-card:hover, .intro-text:hover {
+.post-card:hover,
+.intro-text:hover {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
     transform: translateY(-5px);
 }
@@ -263,18 +270,21 @@ footer p {
     font-size: 0.9rem;
 }
 
-.footer-links, .contact-link {
+.footer-links,
+.contact-link {
     margin: 10px 0;
 }
 
-.footer-links a, .contact-link {
+.footer-links a,
+.contact-link {
     margin: 0 10px;
     color: inherit;
     text-decoration: none;
     transition: text-decoration 0.3s;
 }
 
-.footer-links a:hover, .contact-link:hover {
+.footer-links a:hover,
+.contact-link:hover {
     text-decoration: underline;
 }
 
@@ -296,7 +306,8 @@ footer p {
         padding: 10px;
     }
 
-    header, footer {
+    header,
+    footer {
         padding: 15px;
     }
 }
@@ -310,7 +321,8 @@ button {
     cursor: pointer;
 }
 
-button:focus, a:focus {
+button:focus,
+a:focus {
     outline: none;
 }
 
@@ -361,4 +373,40 @@ body.dark-mode .pagination button.active {
 
 .pagination button:last-child {
     margin-right: 0;
+}
+
+.pagination-input {
+    margin: 0 5px;
+    padding: 10px 15px;
+    border: 1px solid var(--primary-border);
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: var(--text-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    text-align: center;
+}
+
+body.dark-mode .pagination-input {
+    background-color: #2a2a2a;
+    color: var(--dark-text-color);
+    border: 1px solid #f0f0f0;
+}
+
+.pagination-input:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .pagination-input:hover {
+    background-color: #444;
+}
+
+.pagination-input:focus {
+    background-color: #e0e0e0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    outline: none;
 }

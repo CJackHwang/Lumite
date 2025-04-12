@@ -1,6 +1,6 @@
 {
   "name": "lumite",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "![Lumite](https://static.codemao.cn/pickduck/rkY-aMGPyx.svg?hash=FoLMemr9r1D-6C7pkYLClZP6_lFZ) # Lumite  #### Lightweight native blog framework",
   "type": "module",
   "main": "index.js",

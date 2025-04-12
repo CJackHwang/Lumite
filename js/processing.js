@@ -75,29 +75,18 @@ const displayPosts = (page) => {
 
 // --- Modified updatePagination ---
 const updatePagination = (currentPage, totalPages, paginationContainer) => {
-    paginationContainer.innerHTML = ''; // Clear previous buttons
+    paginationContainer.innerHTML = '';
 
-    if (totalPages <= 1) return; // No pagination needed for 1 or fewer pages
+    if (totalPages <= 1) return;
 
-    // First Page Button
-    if (currentPage > 1) {
-        paginationContainer.appendChild(createPaginationButton('首页', () => displayPosts(1)));
-    }
+    // 添加首页按钮
+    const firstButton = createPaginationButton('首页', () => displayPosts(1));
+    firstButton.disabled = currentPage === 1;
+    paginationContainer.appendChild(firstButton);
 
-    // Previous Page Button
-    if (currentPage > 1) {
-         paginationContainer.appendChild(createPaginationButton('上一页', () => displayPosts(currentPage - 1)));
-    }
-
-
-    // Page Number Buttons (e.g., show current page and +/- 1)
+    // 生成页码按钮（显示当前页及前后各一页）
     const startPage = Math.max(1, currentPage - 1);
     const endPage = Math.min(totalPages, currentPage + 1);
-
-    if (startPage > 1) {
-         paginationContainer.appendChild(createPaginationButton('...', () => displayPosts(startPage -1))); // Ellipsis if needed
-    }
-
 
     for (let i = startPage; i <= endPage; i++) {
         const button = createPaginationButton(i, () => displayPosts(i));
@@ -105,21 +94,35 @@ const updatePagination = (currentPage, totalPages, paginationContainer) => {
         paginationContainer.appendChild(button);
     }
 
-     if (endPage < totalPages) {
-         paginationContainer.appendChild(createPaginationButton('...', () => displayPosts(endPage + 1))); // Ellipsis if needed
-    }
+    // 添加尾页按钮
+    const lastButton = createPaginationButton('尾页', () => displayPosts(totalPages));
+    lastButton.disabled = currentPage === totalPages;
+    paginationContainer.appendChild(lastButton);
 
+    // 添加页码跳转功能
+    const jumpContainer = document.createElement('div');
+    jumpContainer.style.display = 'flex';
+    jumpContainer.style.gap = '8px';
+    jumpContainer.style.alignItems = 'center';
 
-    // Next Page Button
-    if (currentPage < totalPages) {
-        paginationContainer.appendChild(createPaginationButton('下一页', () => displayPosts(currentPage + 1)));
-    }
+    const jumpInput = document.createElement('input');
+    jumpInput.className = 'pagination-input';
+    jumpInput.type = 'number';
+    jumpInput.min = 1;
+    jumpInput.max = totalPages;
+    jumpInput.placeholder = '页码';
 
+    const jumpButton = createPaginationButton('跳转', () => {
+        const page = parseInt(jumpInput.value);
+        if (page >= 1 && page <= totalPages) {
+            displayPosts(page);
+        }
+    });
+    jumpButton.className = 'pagination-jump';
 
-    // Last Page Button
-     if (currentPage < totalPages) {
-        paginationContainer.appendChild(createPaginationButton('尾页', () => displayPosts(totalPages)));
-     }
+    jumpContainer.appendChild(jumpInput);
+    jumpContainer.appendChild(jumpButton);
+    paginationContainer.appendChild(jumpContainer);
 };
 
 // --- Helper to create pagination buttons ---
