@@ -210,6 +210,32 @@ body.dark-mode .meta {
     color: #e0e0e0;
 }
 
+.excerpt {
+    color: #666666;
+    font-size: 0.95em;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+body.dark-mode .excerpt {
+    color: #bbbbbb;
+}
+
+.loading-indicator {
+    text-align: center;
+    padding: 20px;
+    color: #888888;
+}
+
+body.dark-mode .loading-indicator {
+    color: #aaaaaa;
+}
+
+/* Style for the full post content wrapper */
+.post-full-content {
+    margin-top: 15px;
+}
+
 
 footer {
     text-align: center;

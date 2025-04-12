@@ -1,6 +1,11 @@
-文章2-未命名标题
-未命名副标题（非必填）
 ---
+title: 文章2-未命名标题
+meta: 未命名副标题（非必填）
+author: CJackHwang
+date: 2025-04-11 # Assuming an earlier date for sorting example
+tags: []
+---
+
 ## 支持md格式哦
 * posts引用的文件夹为存放文章（.txt）
 * 文件中第一行为卡片大标题，第二行为副标题

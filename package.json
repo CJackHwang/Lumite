@@ -1,0 +1,29 @@
+{
+  "name": "lumite",
+  "version": "1.0.0",
+  "description": "![Lumite](https://static.codemao.cn/pickduck/rkY-aMGPyx.svg?hash=FoLMemr9r1D-6C7pkYLClZP6_lFZ) # Lumite  #### Lightweight native blog framework",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node generate-posts-json.js",
+    "dev": "npm run build && http-server -p 8080 -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CJackHwang/Lumite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CJackHwang/Lumite/issues"
+  },
+  "homepage": "https://github.com/CJackHwang/Lumite#readme",
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

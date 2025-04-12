@@ -1,189 +1,237 @@
 const postList = document.getElementById('postList');
+let allPosts = []; // Store all posts data from posts.json
+let isAnimating = false;
+const postsPerPage = 4; // Define how many posts per page
 
-const getPostFileList = async () => {
+// --- New function to fetch the post index ---
+const loadPostIndex = async () => {
     try {
-        const response = await fetch('posts_list/list.txt');
-        const text = await response.text();
-        return text.split('\n').map(file => file.trim()).filter(Boolean);
+        // Add cache busting query parameter to avoid stale data
+        const response = await fetch(`posts.json?t=${Date.now()}`);
+        if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+        allPosts = await response.json();
+        console.log(`Loaded ${allPosts.length} posts from index.`);
+        displayPosts(1); // Display the first page initially
     } catch (error) {
-        console.error('获取帖子文件失败:', error);
-        return [];
+        console.error('Failed to load post index:', error);
+        postList.innerHTML = '<p style="color: red;">加载文章列表失败，请稍后重试或检查 posts.json 文件是否存在。</p>';
     }
 };
 
-const fetchPost = async (file) => {
-    try {
-        const response = await fetch(`posts/${file}`);
-        if (!response.ok) throw new Error(`HTTP错误: ${response.status}`);
-        const data = await response.text();
-        return parsePost(data);
-    } catch (error) {
-        console.error(`获取帖子失败: ${file}`, error);
-        return null;
-    }
-};
+// --- Modified displayPosts to handle pagination based on allPosts ---
+const displayPosts = (page) => {
+    const totalPages = Math.ceil(allPosts.length / postsPerPage);
+    const paginationContainer = document.querySelector('.pagination') || document.createElement('div');
+    paginationContainer.className = 'pagination';
 
-const parsePost = (text) => {
-    const lines = text.split('\n').map(line => line.trim());
-    const [title,
-        meta,
-        ...contentLines] = lines;
+    // Fade out effect for page transition
+    postList.style.transition = 'opacity 0.3s ease';
+    postList.style.opacity = '0';
 
-    return {
-        title,
-        meta,
-        content: `<div class="footer-links">${marked.parse(contentLines.join('\n').trim())}</div>`
-    };
-};
+    setTimeout(() => {
+        // Clear only post cards, keep pagination if it exists
+        const existingCards = postList.querySelectorAll('.post-card');
+        existingCards.forEach(card => card.remove());
 
-const displayPosts = (posts) => {
-    const postsPerPage = 4;
-    const totalPages = Math.ceil(posts.length / postsPerPage);
-    const pagination = document.createElement('div');
-    pagination.className = 'pagination';
-    let isFirstLoad = true;
+        const start = (page - 1) * postsPerPage;
+        const end = start + postsPerPage;
+        const postsToShow = allPosts.slice(start, end);
 
-    const showPage = (page) => {
-        if (!isFirstLoad) {
-            postList.style.transition = 'opacity 0.5s ease';
-            postList.style.opacity = '0';
-        }
-
-        setTimeout(() => {
-            postList.innerHTML = '';
-            const start = (page - 1) * postsPerPage;
-            const end = start + postsPerPage;
-
-            const fragment = document.createDocumentFragment();
-            posts.slice(start, end).forEach((post, index) => {
-                if (post) {
-                    const postCard = document.createElement('div');
-                    postCard.className = 'post-card';
-                    postCard.onclick = () => toggleContent(start + index);
-                    postCard.innerHTML = `
+        const fragment = document.createDocumentFragment();
+        postsToShow.forEach((post, index) => {
+            const globalIndex = start + index; // Use global index for unique IDs
+            if (post) {
+                const postCard = document.createElement('div');
+                postCard.className = 'post-card';
+                // Pass the post path and global index to toggleContent
+                postCard.onclick = () => toggleContent(globalIndex, post.path);
+                postCard.innerHTML = `
                     <h2>${post.title}</h2>
                     <p class="meta">${post.meta}</p>
-                    <div class="content" id="content-${start + index}" style="display: none; opacity: 0; max-height: 0; transition: max-height 0.5s ease, opacity 0.5s ease;" data-fulltext="${encodeURIComponent(post.content)}"></div>
-                    `;
-                    fragment.appendChild(postCard);
-                }
-            });
-
-            postList.appendChild(fragment);
-            updatePagination(page);
-
-            if (!isFirstLoad) {
-                postList.style.opacity = '1';
-            } else {
-                isFirstLoad = false;
+                    ${post.excerpt ? `<p class="excerpt">${post.excerpt}</p>` : ''}
+                    <div class="content" id="content-${globalIndex}" style="display: none; opacity: 0; max-height: 0; transition: max-height 0.5s ease, opacity 0.5s ease;">
+                        <p class="loading-indicator">正在加载文章内容...</p>
+                    </div>
+                `;
+                fragment.appendChild(postCard);
             }
-        },
-            isFirstLoad ? 0: 500);
-    };
+        });
 
-    const updatePagination = (currentPage) => {
-        pagination.innerHTML = '';
+        // Prepend new cards to postList
+        postList.prepend(fragment);
 
-        const firstButton = createPaginationButton('首页',
-            () => showPage(1));
-        pagination.appendChild(firstButton);
-
-        const pageButtons = [];
-        const startPage = Math.max(1,
-            currentPage - 1);
-        const endPage = Math.min(totalPages,
-            currentPage + 1);
-
-        for (let i = startPage; i <= endPage; i++) {
-            if (i <= totalPages) {
-                const button = createPaginationButton(i, () => showPage(i));
-                if (i === currentPage) button.classList.add('active');
-                pageButtons.push(button);
-            }
+        // Update or create pagination
+        updatePagination(page, totalPages, paginationContainer);
+        // Ensure pagination is at the end
+        if (!postList.contains(paginationContainer)) {
+            postList.appendChild(paginationContainer);
         }
 
-        if (pageButtons.length === 0) {
-            const fallbackButton = createPaginationButton('1', () => showPage(1));
-            pageButtons.push(fallbackButton);
-        }
 
-        pageButtons.forEach(button => pagination.appendChild(button));
-
-        if (totalPages > 1) {
-            const lastButton = createPaginationButton('尾页', () => showPage(totalPages));
-            pagination.appendChild(lastButton);
-        }
-
-        postList.appendChild(pagination);
-    };
-
-    const createPaginationButton = (text, onClick) => {
-        const button = document.createElement('button');
-        button.innerText = text;
-        button.onclick = onClick;
-        return button;
-    };
-
-    showPage(1);
+        // Fade in new content
+        postList.style.opacity = '1';
+    }, 300); // Timeout matches the fade-out duration
 };
 
-let isAnimating = false;
+// --- Modified updatePagination ---
+const updatePagination = (currentPage, totalPages, paginationContainer) => {
+    paginationContainer.innerHTML = ''; // Clear previous buttons
 
-const toggleContent = (index) => {
-    const content = document.getElementById(`content-${index}`);
-    const isVisible = content.style.maxHeight !== '0px';
+    if (totalPages <= 1) return; // No pagination needed for 1 or fewer pages
 
-    if (isAnimating) return;
+    // First Page Button
+    if (currentPage > 1) {
+        paginationContainer.appendChild(createPaginationButton('首页', () => displayPosts(1)));
+    }
+
+    // Previous Page Button
+    if (currentPage > 1) {
+         paginationContainer.appendChild(createPaginationButton('上一页', () => displayPosts(currentPage - 1)));
+    }
+
+
+    // Page Number Buttons (e.g., show current page and +/- 1)
+    const startPage = Math.max(1, currentPage - 1);
+    const endPage = Math.min(totalPages, currentPage + 1);
+
+    if (startPage > 1) {
+         paginationContainer.appendChild(createPaginationButton('...', () => displayPosts(startPage -1))); // Ellipsis if needed
+    }
+
+
+    for (let i = startPage; i <= endPage; i++) {
+        const button = createPaginationButton(i, () => displayPosts(i));
+        if (i === currentPage) button.classList.add('active');
+        paginationContainer.appendChild(button);
+    }
+
+     if (endPage < totalPages) {
+         paginationContainer.appendChild(createPaginationButton('...', () => displayPosts(endPage + 1))); // Ellipsis if needed
+    }
+
+
+    // Next Page Button
+    if (currentPage < totalPages) {
+        paginationContainer.appendChild(createPaginationButton('下一页', () => displayPosts(currentPage + 1)));
+    }
+
+
+    // Last Page Button
+     if (currentPage < totalPages) {
+        paginationContainer.appendChild(createPaginationButton('尾页', () => displayPosts(totalPages)));
+     }
+};
+
+// --- Helper to create pagination buttons ---
+const createPaginationButton = (text, onClick) => {
+    const button = document.createElement('button');
+    button.innerText = text;
+    button.onclick = onClick;
+    // Prevent button click from propagating to card click if inside postList
+    button.addEventListener('click', (e) => e.stopPropagation());
+    return button;
+};
+
+// --- Modified toggleContent to fetch content on demand ---
+const toggleContent = async (index, postPath) => {
+    const contentDiv = document.getElementById(`content-${index}`);
+    if (!contentDiv) return;
+
+    const isVisible = contentDiv.style.maxHeight !== '0px';
+    const isLoading = contentDiv.classList.contains('loading');
+    const isLoaded = contentDiv.classList.contains('loaded');
+
+    if (isAnimating || isLoading) return; // Prevent multiple clicks during animation/loading
+
     isAnimating = true;
 
-    const toggleAnimation = (show) => {
-        if (show) {
-            content.style.display = 'block';
-            const text = decodeURIComponent(content.getAttribute('data-fulltext'));
-            content.innerHTML = text;
+    if (!isVisible) { // Expand
+        contentDiv.style.display = 'block'; // Make it visible for height calculation
 
-            const fullHeight = content.scrollHeight;
-            content.style.maxHeight = `${fullHeight}px`;
-            content.style.opacity = '1';
+        if (!isLoaded) { // Content not loaded yet, fetch it
+            contentDiv.classList.add('loading');
+            contentDiv.innerHTML = '<p class="loading-indicator">正在加载文章内容...</p>'; // Show loading indicator
 
-            const images = content.getElementsByTagName('img');
-            let loadedImages = 0;
+            try {
+                const response = await fetch(`${postPath}?t=${Date.now()}`); // Add cache busting
+                if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+                const markdownText = await response.text();
+                // Use gray-matter logic (or simple split) if Front Matter is still in the fetched file
+                const fileContent = markdownText.includes('---') ? markdownText.split('---')[2] || markdownText : markdownText;
+                // Render Markdown using marked.js
+                contentDiv.innerHTML = `<div class="post-full-content">${marked.parse(fileContent.trim())}</div>`;
+                contentDiv.classList.remove('loading');
+                contentDiv.classList.add('loaded'); // Mark as loaded
 
-            const checkImagesLoaded = () => {
-                loadedImages++;
-                if (loadedImages === images.length) {
-                    content.style.maxHeight = `${content.scrollHeight}px`;
+                // Recalculate height after content is loaded
+                const fullHeight = contentDiv.scrollHeight;
+                contentDiv.style.maxHeight = `${fullHeight}px`;
+                contentDiv.style.opacity = '1';
+
+                // Adjust height again after images load (if any)
+                const images = contentDiv.querySelectorAll('.post-full-content img');
+                if (images.length > 0) {
+                    let loadedImages = 0;
+                    const checkImagesLoaded = () => {
+                        loadedImages++;
+                        if (loadedImages === images.length) {
+                             // Use setTimeout to ensure rendering is complete
+                            setTimeout(() => {
+                                contentDiv.style.maxHeight = `${contentDiv.scrollHeight}px`;
+                            }, 100);
+                        }
+                    };
+                    images.forEach(img => {
+                        if (img.complete) {
+                            checkImagesLoaded();
+                        } else {
+                            img.onload = checkImagesLoaded;
+                            img.onerror = checkImagesLoaded; // Count errors as loaded too
+                        }
+                    });
                 }
-            };
 
-            if (images.length === 0) {
-                content.style.maxHeight = `${fullHeight}px`;
-            } else {
-                for (let img of images) {
-                    img.onload = checkImagesLoaded;
-                    img.onerror = checkImagesLoaded;
-                }
+
+            } catch (error) {
+                console.error(`Failed to fetch post content: ${postPath}`, error);
+                contentDiv.innerHTML = '<p style="color: red;">加载文章内容失败。</p>';
+                contentDiv.classList.remove('loading');
+                // Still expand to show the error message
+                contentDiv.style.maxHeight = `${contentDiv.scrollHeight}px`;
+                contentDiv.style.opacity = '1';
             }
-        } else {
-            content.style.maxHeight = '0';
-            content.style.opacity = '0';
-            setTimeout(() => {
-                content.style.display = 'none';
-            }, 500);
-        }
-    };
 
-    toggleAnimation(!isVisible);
+        } else { // Content already loaded, just expand
+            const fullHeight = contentDiv.scrollHeight;
+            contentDiv.style.maxHeight = `${fullHeight}px`;
+            contentDiv.style.opacity = '1';
+        }
+
+    } else { // Collapse
+        contentDiv.style.maxHeight = '0';
+        contentDiv.style.opacity = '0';
+        // Don't hide immediately, wait for transition
+        setTimeout(() => {
+             if (contentDiv.style.maxHeight === '0px') { // Check if it's still collapsed
+                 contentDiv.style.display = 'none';
+             }
+        }, 500); // Match CSS transition duration
+    }
+
+    // Reset animation flag after transition
     setTimeout(() => {
         isAnimating = false;
-    }, 500);
+    }, 500); // Match CSS transition duration
 };
 
-const loadPosts = async () => {
-    const postFiles = await getPostFileList();
-    const postsPromises = postFiles.map(fetchPost);
-    const posts = await Promise.all(postsPromises);
-    displayPosts(posts.filter(Boolean));
-};
-
-loadPosts();
+// --- Initial load ---
+// Add DOMContentLoaded listener to ensure elements exist
+document.addEventListener('DOMContentLoaded', () => {
+    // Check if marked is loaded, if not, maybe add a small delay or check periodically
+    if (typeof marked === 'undefined') {
+        console.warn('marked.min.js is not loaded yet. Retrying in 100ms.');
+        setTimeout(loadPostIndex, 100);
+    } else {
+        loadPostIndex();
+    }
+});
